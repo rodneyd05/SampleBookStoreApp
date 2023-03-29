@@ -21,7 +21,7 @@ class BookListAdapter(private val bookList: List<Book>): RecyclerView.Adapter<Bo
         viewType: Int
     ): BookListHolder {
 
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.booklist_design, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.book_list_design, parent, false)
 
         return BookListHolder(view)
     }
