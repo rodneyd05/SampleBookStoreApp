@@ -16,3 +16,9 @@ val bookList = listOf(
     Book("Android Design Patterns: Interaction Design Solutions for Developers 1st Edition, Kindle Edition", "Greg Nudelman", R.raw.image008),
     Book("Beginning Android Games 3rd ed. Edition", "Mario Zechner, J. F. DiMarzio, Robert Green", R.raw.image009)
 )
+
+val myBookList = listOf(
+    Book("GUI Design for Android Apps 1st ed. Edition, Kindle Edition", "Ryan Cohen, Tao Wang", R.raw.image005),
+    Book("Beginning Android Games 3rd ed. Edition", "Mario Zechner, J. F. DiMarzio, Robert Green", R.raw.image009)
+
+)
