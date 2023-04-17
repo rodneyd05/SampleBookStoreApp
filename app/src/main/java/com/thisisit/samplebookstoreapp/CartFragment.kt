@@ -27,7 +27,7 @@ class CartFragment : Fragment() {
 
         //use context instead of (this@YourBooksFragment)
         cartBinding.cartListRecyclerView.layoutManager = LinearLayoutManager(context)
-        val bookListAdapter = BookListAdapter(cartList)
-        cartBinding.cartListRecyclerView.adapter = bookListAdapter
+        val cartListAdapter = CartListAdapter(cartList)
+        cartBinding.cartListRecyclerView.adapter = cartListAdapter
     }
 }

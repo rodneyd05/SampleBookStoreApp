@@ -37,22 +37,22 @@
         app:layout_constraintTop_toBottomOf="@+id/bookTitle" />
 
     <ImageView
-        android:id="@+id/download"
+        android:id="@+id/cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toEndOf="@+id/bookTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_download_24" />
+        app:srcCompat="@drawable/shopping_cart" />
 
     <ImageView
-        android:id="@+id/cart"
+        android:id="@+id/option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintStart_toEndOf="@+id/download"
+        app:layout_constraintStart_toEndOf="@+id/cart"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shopping_cart" />
+        app:srcCompat="@drawable/baseline_more_vert_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
