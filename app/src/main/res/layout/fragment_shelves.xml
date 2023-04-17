@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchView"
-        tools:listitem="@layout/book_list_design" />
+        tools:listitem="@layout/shelves_list_design" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
