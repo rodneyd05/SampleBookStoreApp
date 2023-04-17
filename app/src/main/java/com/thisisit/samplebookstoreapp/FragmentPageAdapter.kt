@@ -18,7 +18,7 @@ class FragmentPageAdapter(
         return when (position) {
             0 -> YourBooksFragment()
             1 -> ShelvesFragment()
-            else -> SeriesFragment()
+            else -> CartFragment()
         }
     }
 }

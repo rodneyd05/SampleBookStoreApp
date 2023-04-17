@@ -22,3 +22,5 @@ val myBookList = listOf(
     Book("Beginning Android Games 3rd ed. Edition", "Mario Zechner, J. F. DiMarzio, Robert Green", R.raw.image009)
 
 )
+
+val cartList = mutableListOf<Book>()

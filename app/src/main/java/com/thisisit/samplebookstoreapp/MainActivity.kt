@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         adapter = FragmentPageAdapter(supportFragmentManager, lifecycle)
         mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Your Books"))
         mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Shelves"))
-        mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Series"))
+        mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Cart"))
 
         mainBinding.viewPager2.adapter = adapter
         //to create a relation between tab and fragment

@@ -7,13 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class BookListAdapter(private val bookList: List<Book>): RecyclerView.Adapter<BookListAdapter.BookListHolder>() {
+class BookListAdapter(private var bookList: List<Book>): RecyclerView.Adapter<BookListAdapter.BookListHolder>() {
 
     class BookListHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         val bookTitle: TextView = itemView.findViewById(R.id.bookTitle)
         val bookAuthor: TextView = itemView.findViewById(R.id.bookAuthor)
         val bookImage: ImageView = itemView.findViewById(R.id.bookImage)
+    }
+
+    //when setFiltered and filteredList is passed, filteredList is assigned to be displayed in recyclerView
+    fun setFiltered(mList: List<Book>) {
+        this.bookList = mList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(

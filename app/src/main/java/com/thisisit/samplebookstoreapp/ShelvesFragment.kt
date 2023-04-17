@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thisisit.samplebookstoreapp.databinding.FragmentShelvesBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ShelvesFragment : Fragment() {
 
@@ -31,5 +35,33 @@ class ShelvesFragment : Fragment() {
         shelvesBinding.bookListRecyclerView.layoutManager = LinearLayoutManager(context)
         val bookListAdapter = BookListAdapter(bookList)
         shelvesBinding.bookListRecyclerView.adapter = bookListAdapter
+
+        shelvesBinding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+
+            private fun filterList(query: String?) {
+                if (query != null) {
+                    val filteredList = ArrayList<Book>()
+                    val emptyList = ArrayList<Book>()
+                    for (i in bookList) {
+                        if (i.title.contains(query, ignoreCase = true) || i.author.contains(query, ignoreCase = true)) {
+                            filteredList.add(i)
+                        }
+                    }
+                    if (filteredList.isEmpty()) {
+                        bookListAdapter.setFiltered(emptyList)
+                    } else {
+                        bookListAdapter.setFiltered(filteredList)
+                    }
+                }
+            }
+        })
     }
 }
