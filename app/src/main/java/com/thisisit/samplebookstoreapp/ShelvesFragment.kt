@@ -54,9 +54,9 @@ class ShelvesFragment : Fragment() {
                         }
                     }
                     if (filteredList.isEmpty()) {
-                        shelvesListAdapter.setFiltered(emptyList)
+                        shelvesListAdapter.updateShelvesList(emptyList)
                     } else {
-                        shelvesListAdapter.setFiltered(filteredList)
+                        shelvesListAdapter.updateShelvesList(filteredList)
                     }
                 }
             }

@@ -16,12 +16,6 @@ class BookListAdapter(private var bookList: List<Book>): RecyclerView.Adapter<Bo
         val bookImage: ImageView = itemView.findViewById(R.id.bookImage)
     }
 
-    //when setFiltered and filteredList is passed, filteredList is assigned to be displayed in recyclerView
-    fun setFiltered(mList: List<Book>) {
-        this.bookList = mList
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

@@ -5,7 +5,7 @@ data class Book(
     val author: String,
     val image: Int)
 
-val bookList = listOf(
+val bookList = mutableListOf(
     Book("Android Programming: The Big Nerd Ranch Guide (Big Nerd Ranch Guides) 3rd Edition", "Bill Phillips, Chris Stewart, Kristin Marsicano", R.raw.image001),
     Book("Head First Android Development: A Brain-Friendly Guide 2nd Edition", "Dawn Griffiths, David Griffiths", R.raw.image002),
     Book("Java Programming for Android Developers For Dummies (For Dummies (Computers)) 2nd Edition, Kindle Edition", "Barry Burd", R.raw.image003),
@@ -23,6 +23,4 @@ val myBookList = listOf(
 
 )
 
-val cartList = mutableListOf<Book>(
-    Book("Beginning Android Games 3rd ed. Edition", "Mario Zechner, J. F. DiMarzio, Robert Green", R.raw.image009)
-)
+val cartList = mutableListOf<Book>()

@@ -5,20 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class ShelvesListAdapter(private var bookList: List<Book>): RecyclerView.Adapter<ShelvesListAdapter.BookListHolder>() {
+class ShelvesListAdapter(private var list: List<Book>): RecyclerView.Adapter<ShelvesListAdapter.BookListHolder>() {
 
     class BookListHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         val bookTitle: TextView = itemView.findViewById(R.id.bookTitle)
         val bookAuthor: TextView = itemView.findViewById(R.id.bookAuthor)
         val bookImage: ImageView = itemView.findViewById(R.id.bookImage)
+        val addToCart: ImageView = itemView.findViewById(R.id.cart)
     }
 
     //when setFiltered and filteredList is passed, filteredList is assigned to be displayed in recyclerView
-    fun setFiltered(mList: List<Book>) {
-        this.bookList = mList
+    fun updateShelvesList(mList: List<Book>) {
+        this.list = mList
+        //notifyDataSetChanged() to update the list
         notifyDataSetChanged()
     }
 
@@ -33,12 +36,20 @@ class ShelvesListAdapter(private var bookList: List<Book>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: BookListHolder, position: Int) {
-        holder.bookImage.setImageResource(bookList[position].image)
-        holder.bookTitle.text = bookList[position].title
-        holder.bookAuthor.text = bookList[position].author
+        holder.bookImage.setImageResource(list[position].image)
+        holder.bookTitle.text = list[position].title
+        holder.bookAuthor.text = list[position].author
+        holder.addToCart.setOnClickListener { v ->
+            //removeAt removes the item from the bookList and return the value to be added in cartList
+            val added = bookList.removeAt(holder.adapterPosition)
+            cartList.add(added)
+
+            updateShelvesList(bookList)
+            Toast.makeText(v!!.context, "Added ${added.title}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
-        return bookList.size
+        return list.size
     }
 }
