@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class CartListAdapter(private var list: List<Book>): RecyclerView.Adapter<CartListAdapter.BookListHolder>() {
@@ -14,6 +15,7 @@ class CartListAdapter(private var list: List<Book>): RecyclerView.Adapter<CartLi
         val bookTitle: TextView = itemView.findViewById(R.id.bookTitle)
         val bookAuthor: TextView = itemView.findViewById(R.id.bookAuthor)
         val bookImage: ImageView = itemView.findViewById(R.id.bookImage)
+        val cartRemove: ImageView = itemView.findViewById(R.id.cart_remove)
     }
     fun updateCartList(mList: List<Book>) {
         this.list = mList
@@ -34,6 +36,14 @@ class CartListAdapter(private var list: List<Book>): RecyclerView.Adapter<CartLi
         holder.bookImage.setImageResource(list[position].image)
         holder.bookTitle.text = list[position].title
         holder.bookAuthor.text = list[position].author
+
+        holder.cartRemove.setOnClickListener {v ->
+            val added = cartList.removeAt(holder.adapterPosition)
+            bookList.add(added)
+
+            updateCartList(cartList)
+            Toast.makeText(v!!.context, "Removed ${added.title}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {

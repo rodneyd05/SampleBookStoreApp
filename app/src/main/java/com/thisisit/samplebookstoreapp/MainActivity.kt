@@ -1,5 +1,6 @@
 package com.thisisit.samplebookstoreapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
@@ -20,7 +21,12 @@ class MainActivity : AppCompatActivity() {
         adapter = FragmentPageAdapter(supportFragmentManager, lifecycle)
         mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Your Books"))
         mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Shelves"))
-        mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Cart"))
+        mainBinding.libraryOptionTabLayout.addTab(mainBinding.libraryOptionTabLayout.newTab().setText("Series"))
+
+        mainBinding.cart.setOnClickListener{
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
 
         mainBinding.viewPager2.adapter = adapter
         //to create a relation between tab and fragment
